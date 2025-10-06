@@ -236,9 +236,5 @@ export const stories = {
     
   }
 
-  // 💬 ENGLISH VERSION
-  en: {
-    // Traducciones para Luma, Aisha y Sebas (igual estructura)
-    // 👇 ¿Quieres que te complete todas las traducciones al inglés también?
-  },
+
 };
