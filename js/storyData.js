@@ -94,7 +94,7 @@ export const stories = {
           "¡Saludos desde el espacio! Soy la Capitana Aisha y mi oficina está a miles de kilómetros de la Tierra.",
           "Aquí arriba, no tenemos el súper escudo que te protege a ti.",
         ],
-        videos: ["vidA1"],
+        videos: ["videA1"],
         interactive: ["btn-next"],
         audio: { music: "sfx_static", volume: 0.4 },
       },
