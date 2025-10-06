@@ -1,0 +1,133 @@
+header {
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  position: relative;
+  z-index: 2; /* sobre el video */
+}
+
+header h1 {
+  font-family: 'Orbitron'; /* futurista y limpia */
+  font-size: 5rem; /* grande e imponente */
+  font-weight: 900;
+  color: #ffffff; /* solo blanco */
+  letter-spacing: 2px;
+  text-transform: uppercase;
+
+  /* Glow sutil para destacar sobre el video */
+  text-shadow: 
+    0 0 10px rgba(255, 255, 255, 0.7),
+    0 0 20px rgba(255, 255, 255, 0.5),
+    0 0 30px rgba(255, 255, 255, 0.3);
+}
+
+header p {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.5rem;
+  color: #ffffff;
+  text-shadow: 0 0 5px rgba(255,255,255,0.5);
+  margin-top: 15px;
+}
+
+
+
+body {
+  font-family: "Arial", sans-serif;
+  background: linear-gradient(to bottom, #0d1b2a, #1b263b, #415a77);
+  color: #fff;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+
+
+.characters {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 40px auto;
+  gap: 20px;
+}
+
+.character-card {
+  background: #1b263b;
+  border-radius: 15px;
+  padding: 20px;
+  width: 200px;
+  transition: transform 0.3s;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.character-card:hover {
+  transform: scale(1.05);
+  background: #415a77;
+}
+
+.character-card img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.character-card h2 {
+  margin: 15px 0 5px;
+  font-size: 1.2rem;
+  color: #f9d71c;
+}
+/* Fondo de video */
+#bg-video {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+  z-index: -2; /* Queda detrás del contenido */
+}
+
+/* Capa oscura encima del video */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6); /* Ajusta la opacidad para mejor contraste */
+  z-index: -1;
+}
+
+
+.character-card {
+  position: relative;
+}
+
+/* Caja de información */
+.character-card .info {
+  display: none;
+  position: absolute;
+  bottom: -120px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.85);
+  color: #fff;
+  padding: 12px;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  width: 220px;
+  text-align: center;
+  z-index: 10;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+  animation: fadeIn 0.3s ease;
+}
+
+/* Mostrar info cuando el cursor pasa */
+.character-card:hover .info {
+  display: block;
+}
+
+/* Pequeña animación */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translate(-50%, -10px); }
+  to { opacity: 1; transform: translate(-50%, 0); }
+}

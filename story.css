@@ -1,0 +1,106 @@
+/* =========================================
+   story.css - Estilo de la Interfaz del Juego
+   ========================================= */
+
+/* 1. ESTILOS BASE Y FONDO ARMÓNICO */
+/* ---------------------------------- */
+
+/* Fuente de texto base (Aunque Phaser usa su propia fuente, es buena práctica definirla aquí) */
+body {
+    /* Fondo oscuro y galáctico, transiciona suavemente al cargar. */
+    background: linear-gradient(180deg, #070B18 0%, #171c35 100%);
+    color: #f0f8ff; /* Blanco espacial */
+    font-family: 'Orbitron', sans-serif; /* Fuente futurista */
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Evita barras de desplazamiento */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Asegura que ocupe toda la altura visible del dispositivo */
+}
+
+/* Opcional: Estrellas/patrón sutil de fondo (Placeholder para fondo complejo) */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Efecto de ruido o estrellas muy sutil. Puedes reemplazar esto con una imagen de fondo. */
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 5px 5px;
+
+    opacity: 0.5;
+    z-index: -1;
+}
+#bg-video {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+  z-index: -2; /* Queda detrás del contenido */
+}
+
+/* 2. CENTRADO DEL CONTENEDOR DE PHASER */
+/* --------------------------------------- */
+
+/* Phaser crea un elemento <canvas> y a menudo lo envuelve en un <div> o lo coloca directamente en el body.
+   Este estilo ayuda a centrarlo si se genera directamente en el body o en un contenedor: */
+canvas,
+div#phaser-container { /* Asumiendo que el contenedor del juego se llama 'phaser-container' o es el canvas mismo */
+    border-radius: 15px; /* Bordes redondeados para el área del juego */
+    box-shadow: 0 0 40px rgba(121, 161, 255, 0.3); /* Resplandor azul sutil */
+    max-width: 95vw; /* Límites en dispositivos anchos */
+    max-height: 95vh;
+}
+
+/* 3. ESTILOS DE ELEMENTOS GENERADOS POR PHASER */
+/* ---------------------------------------------- */
+
+/* 3.1. MEJORA VISUAL DE VIDEOS/IMÁGENES */
+
+/* Phaser usa elementos <video> que flotan sobre el canvas para reproducir. */
+video {
+    /* Borde que hace lucir el video menos "cuadrado" y más tecnológico. */
+    border: 3px solid #79A1FF; /* Borde azul claro */
+    border-radius: 10px; /* Esquinas ligeramente redondeadas */
+    box-shadow: 0 0 15px rgba(121, 161, 255, 0.5); /* Resplandor del borde */
+    /* Nota: Para estilos más avanzados como biselado o degradados,
+             deberías usar Phaser Graphics o Shaders en lugar de solo CSS. */
+}
+
+/* 3.2. ESTILO DE BOTONES (El texto interactivo que genera Phaser) */
+
+/* El botón de Phaser está hecho de un objeto de Texto. 
+   Estilizamos el botón para que se vea como un botón físico futurista. */
+
+
+/* 4. ADAPTABILIDAD (RESPONSIVE DESIGN) */
+/* -------------------------------------- */
+
+/* Mantiene el cuerpo centrado y el juego dentro de los límites en dispositivos pequeños */
+@media (max-width: 768px) {
+    body {
+        /* Permite algo de desplazamiento vertical si el juego es más alto que la pantalla */
+        overflow-y: auto; 
+    }
+    
+    /* Asegura que el área de juego no se salga en pantallas muy pequeñas */
+    canvas,
+    div#phaser-container {
+        /* Reduce el resplandor para ahorrar rendimiento */
+        box-shadow: 0 0 15px rgba(121, 161, 255, 0.2); 
+    }
+}
+
+/* Dispositivos muy pequeños (móviles) */
+@media (max-width: 480px) {
+    body {
+        /* Alinea el contenido más hacia la parte superior si es un móvil */
+        align-items: flex-start;
+    }
+}

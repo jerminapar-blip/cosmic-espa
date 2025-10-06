@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Space Weather - Welcome / Clima Espacial - Bienvenida</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
+  <link rel="icon" href="./recursos/favicon.ico" type="image/x-icon">
+
+  <style>
+     #lang-toggle {
+    position: fixed;
+    top: 20px;
+    right: 25px;
+    background-color: rgba(255, 255, 255, 0.25);
+    border: 2px solid #ffffff;
+    border-radius: 16px;
+    padding: 12px 20px;
+    color: #fff;
+    font-size: 1.2rem;
+    cursor: pointer;
+    font-weight: 700;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(6px);
+    z-index: 1000;
+  }
+
+  #lang-toggle:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+  }
+    
+  </style>
+</head>
+
+<body>
+  <button id="lang-toggle">EN</button>
+
+  <header>
+    <h1 id="title"> Bienvenido a Clima Espacial</h1>
+    <p id="subtitle">Elige un personaje y descubre cómo el clima espacial cambia su vida.</p>
+  </header>
+
+  <video autoplay muted loop id="bg-video">
+    <source src="assets/recursos/solarErup.mp4" type="video/mp4">
+    Tu navegador no soporta videos en HTML5.
+  </video>
+
+  <div class="overlay"></div> 
+
+  <section class="characters">
+    <div class="character-card" onclick="goToStory('story.html?char=luma')">
+      <img src="assets/recursos/Luma.png" alt="Llamarada Solar">
+      <h2 id="char1-name">Luma</h2>
+      <div class="info" id="char1-info">
+        🌞 <b>Luma</b> – la Llamarada Solar <br>
+        Curiosa y brillante, viaja desde el Sol para mostrar sus efectos en la Tierra.
+      </div>
+    </div>
+
+    <div class="character-card" onclick="goToStory('story.html?char=aisha')">
+      <img src="assets/recursos/aisha.jpg" alt="Astronauta">
+      <h2 id="char2-name">Aisha</h2>
+      <div class="info" id="char2-info">
+        👩‍🚀 <b>Aisha</b> – la Astronauta <br>
+        Científica de 29 años en la EEI, enfrenta tormentas solares mientras estudia el espacio.
+      </div>
+    </div>
+
+    <div class="character-card" onclick="goToStory('story.html?char=sebas')">
+      <img src="assets/recursos/sebas.jpg" alt="Niño">
+      <h2 id="char3-name">Leo</h2>
+      <div class="info" id="char3-info">
+        👦 <b>Leo</b> – el Niño Curioso <br>
+        Con 9 años, ama observar el cielo y anotar todo lo que aprende sobre el universo.
+      </div>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+
+  <script>
+    const langToggle = document.getElementById("lang-toggle");
+    let currentLang = "es";
+
+    const translations = {
+      es: {
+        title: " Bienvenido a Clima Espacial",
+        subtitle: "Elige un personaje y descubre cómo el clima espacial cambia su vida.",
+        char1: "🌞 <b>Luma</b> – la Llamarada Solar <br> Curiosa y brillante, viaja desde el Sol para mostrar sus efectos en la Tierra.",
+        char2: "👩‍🚀 <b>Aisha</b> – la Astronauta <br> Científica de 29 años en la EEI, enfrenta tormentas solares mientras estudia el espacio.",
+        char3: "👦 <b>Leo</b> – el Niño Curioso <br> Con 9 años, ama observar el cielo y anotar todo lo que aprende sobre el universo.",
+        videoMsg: "Tu navegador no soporta videos en HTML5.",
+        langBtn: "EN"
+      },
+      en: {
+        title: " Welcome to Space Weather",
+        subtitle: "Welcome to the adventure! 🌌 Choose a character and discover how space weather shapes their world. From the blazing Sun to satellites orbiting Earth, every storm tells a story — are you ready to explore?",
+        char1: "🌞 <b>Luma</b> – The Solar Flare <br> Curious and radiant, she travels from the Sun to show how it affects life on Earth.",
+        char2: "👩‍🚀 <b>Aisha</b> – The Astronaut <br> A 29-year-old scientist aboard the ISS, facing solar storms while studying the universe.",
+        char3: "👦 <b>Leo</b> – The Curious Kid <br> At 9 years old, he loves watching the sky and writing down everything he learns about space.",
+        videoMsg: "Your browser does not support HTML5 videos.",
+        langBtn: "ES"
+      }
+    };
+
+    langToggle.addEventListener("click", () => {
+      currentLang = currentLang === "es" ? "en" : "es";
+      const t = translations[currentLang];
+
+      document.getElementById("title").innerHTML = t.title;
+      document.getElementById("subtitle").innerHTML = t.subtitle;
+      document.getElementById("char1-info").innerHTML = t.char1;
+      document.getElementById("char2-info").innerHTML = t.char2;
+      document.getElementById("char3-info").innerHTML = t.char3;
+      document.querySelector("video source").textContent = t.videoMsg;
+
+      langToggle.textContent = t.langBtn;
+    });
+  </script>
+</body>
+</html>
