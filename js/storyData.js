@@ -1,5 +1,5 @@
 export const stories = {
-  es: {
+  
     luma: [
       {
         text: [
@@ -233,8 +233,8 @@ export const stories = {
         interactive: ["btn-end"],
         audio: { music: "feliz", volume: 0.7 },
       },
-    ],
-  },
+    
+  }
 
   // 💬 ENGLISH VERSION
   en: {
