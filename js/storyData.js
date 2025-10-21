@@ -73,7 +73,7 @@ export const stories = {
         text: [
           "¡Tierra protegida! ¡Lo lograste! El planeta Tierra tiene un escudo protector genial, se llama la magnetosfera.",
         ],
-        videos: ["earth-protected"],
+        videos: ["vidL8"],
         interactive: ["btn-next"],
         audio: { music: "feliz", volume: 0.5 },
       },
@@ -227,10 +227,11 @@ export const stories = {
         audio: { music: "music", volume: 0.5 },
       },
       {
-        text: ["¡El pasado también puede iluminar el futuro! 🌌✨"],
+        text: ["¡Guau, lo lograste! El clima espacial ya no tiene secretos para ti. ¿Quieres comenzar el viaje de nuevo? 🌌✨"],
         videos: ["vidS7"],
         interactive: ["btn-end"],
         audio: { music: "feliz", volume: 0.7 },
       },
     ],
   }
+
